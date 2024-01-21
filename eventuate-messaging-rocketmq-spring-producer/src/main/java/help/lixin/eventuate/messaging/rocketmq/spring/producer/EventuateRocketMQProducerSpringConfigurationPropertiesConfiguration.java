@@ -1,0 +1,14 @@
+package help.lixin.eventuate.messaging.rocketmq.spring.producer;
+
+import help.lixin.eventuate.messaging.rocketmq.producer.EventuateRocketMQProducerConfigurationProperties;
+import org.springframework.boot.context.properties.EnableConfigurationProperties;
+import org.springframework.context.annotation.Bean;
+
+@EnableConfigurationProperties(EventuateRocketMQProducerSpringConfigurationProperties.class)
+public class EventuateRocketMQProducerSpringConfigurationPropertiesConfiguration {
+
+  @Bean
+  public EventuateRocketMQProducerConfigurationProperties eventuateKafkaProducerConfigurationProperties(EventuateRocketMQProducerSpringConfigurationProperties eventuateRocketMQProducerSpringConfigurationProperties) {
+    return new EventuateRocketMQProducerConfigurationProperties(eventuateRocketMQProducerSpringConfigurationProperties.getProperties());
+  }
+}

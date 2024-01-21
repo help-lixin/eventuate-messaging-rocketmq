@@ -1,0 +1,17 @@
+package help.lixin.eventuate.messaging.rocketmq.spring.basic.consumer;
+
+import help.lixin.eventuate.messaging.rocketmq.basic.consumer.EventuateRocketMQConsumerConfigurationProperties;
+import org.springframework.boot.context.properties.EnableConfigurationProperties;
+import org.springframework.context.annotation.Bean;
+
+@EnableConfigurationProperties(EventuateRocketMQConsumerSpringConfigurationProperties.class)
+public class EventuateRocketMQConsumerSpringConfigurationPropertiesConfiguration {
+
+  @Bean
+  public EventuateRocketMQConsumerConfigurationProperties eventuateRocketMQConsumerConfigurationProperties(EventuateRocketMQConsumerSpringConfigurationProperties eventuateRocketMQConsumerSpringConfigurationProperties) {
+    EventuateRocketMQConsumerConfigurationProperties eventuateKafkaConsumerConfigurationProperties = new EventuateRocketMQConsumerConfigurationProperties(eventuateRocketMQConsumerSpringConfigurationProperties.getProperties());
+    eventuateKafkaConsumerConfigurationProperties.setPollTimeout(eventuateRocketMQConsumerSpringConfigurationProperties.getPollTimeout());
+    return eventuateKafkaConsumerConfigurationProperties;
+
+  }
+}

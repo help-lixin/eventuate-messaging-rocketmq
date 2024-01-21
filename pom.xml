@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>help.lixin.eventuate</groupId>
+    <artifactId>eventuate-messaging-rocketmq-parent</artifactId>
+    <version>1.0.0-SNAPSHOT</version>
+    <packaging>pom</packaging>
+    <name>eventuate-messaging-rocketmq-parent ${project.version}</name>
+
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <maven.compiler.source>11</maven.compiler.source>
+        <maven.compiler.target>11</maven.compiler.target>
+
+        <rocketmq-client.version>4.9.7</rocketmq-client.version>
+        <slf4j-api.version>1.7.36</slf4j-api.version>
+        <commons-lang.version>2.6</commons-lang.version>
+
+        <spring.boot.version>2.6.11</spring.boot.version>
+
+        <eventuate.messaging.partition.management.version>0.14.0.RELEASE
+        </eventuate.messaging.partition.management.version>
+
+        <eventuate-messaging-rocketmq.version>1.0.0-SNAPSHOT</eventuate-messaging-rocketmq.version>
+        <eventuate-tram-consumer-common.version>0.34.0.RELEASE</eventuate-tram-consumer-common.version>
+        <eventuate.util.version>0.16.0.RELEASE</eventuate.util.version>
+    </properties>
+
+    <dependencyManagement>
+        <dependencies>
+
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-dependencies</artifactId>
+                <version>${spring.boot.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+
+            <dependency>
+                <groupId>org.apache.rocketmq</groupId>
+                <artifactId>rocketmq-client</artifactId>
+                <version>${rocketmq-client.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.slf4j</groupId>
+                <artifactId>slf4j-api</artifactId>
+                <version>${slf4j-api.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>commons-lang</groupId>
+                <artifactId>commons-lang</artifactId>
+                <version>${commons-lang.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>io.eventuate.common.messaging</groupId>
+                <artifactId>eventuate-messaging-partition-management</artifactId>
+                <version>${eventuate.messaging.partition.management.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>io.eventuate.tram.core</groupId>
+                <artifactId>eventuate-tram-consumer-common</artifactId>
+                <version>${eventuate-tram-consumer-common.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>io.eventuate.tram.core</groupId>
+                <artifactId>eventuate-tram-spring-consumer-common</artifactId>
+                <version>${eventuate-tram-consumer-common.version}</version>
+            </dependency>
+
+
+            <dependency>
+                <groupId>io.eventuate.common.messaging</groupId>
+                <artifactId>eventuate-messaging-rocketmq-spring-producer</artifactId>
+                <version>${eventuate.messaging.partition.management.version}</version>
+                <scope>test</scope>
+            </dependency>
+
+            <dependency>
+                <groupId>io.eventuate.util</groupId>
+                <artifactId>eventuate-util-test</artifactId>
+                <version>${eventuate.util.version}</version>
+                <scope>test</scope>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
+    <modules>
+        <module>eventuate-messaging-rocketmq-common</module>
+
+
+        <module>eventuate-messaging-rocketmq-producer</module>
+        <module>eventuate-messaging-rocketmq-spring-common</module>
+        <module>eventuate-messaging-rocketmq-spring-producer</module>
+
+        <module>eventuate-messaging-rocketmq-basic-consumer</module>
+        <module>eventuate-messaging-rocketmq-consumer</module>
+        <module>eventuate-messaging-rocketmq-spring-basic-consumer</module>
+        <module>eventuate-messaging-rocketmq-spring-consumer</module>
+
+        <module>eventuate-tram-consumer-rocketmq</module>
+        <module>eventuate-tram-spring-consumer-rocketmq</module>
+    </modules>
+</project>
