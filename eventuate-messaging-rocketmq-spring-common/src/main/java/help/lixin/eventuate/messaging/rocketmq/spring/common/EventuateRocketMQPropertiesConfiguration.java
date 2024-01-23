@@ -11,7 +11,8 @@ public class EventuateRocketMQPropertiesConfiguration {
 
     @Bean
     public EventuateRocketMQConfigurationProperties //
-    eventuateRocketMQConfigurationProperties(@Value("${eventuate.local.rocket.mq.nameserver.address}") String nameServerAddress) {
+    eventuateRocketMQConfigurationProperties(@Value("${eventuate.local.rocket.mq.nameserver.address:${eventuatelocal.rocket.mq.nameserver.address}}") //
+                                             String nameServerAddress) {
         return new EventuateRocketMQConfigurationProperties(nameServerAddress);
     }
 }
