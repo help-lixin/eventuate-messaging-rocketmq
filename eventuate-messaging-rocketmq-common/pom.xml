@@ -6,12 +6,14 @@
     <parent>
         <groupId>help.lixin.eventuate</groupId>
         <artifactId>eventuate-messaging-rocketmq-parent</artifactId>
-        <version>1.0.0-SNAPSHOT</version>
+        <version>1.0.0</version>
     </parent>
     <artifactId>eventuate-messaging-rocketmq-common</artifactId>
-    <version>1.0.0-SNAPSHOT</version>
+    <version>1.0.0</version>
     <packaging>jar</packaging>
     <name>eventuate-messaging-rocketmq-common ${project.version}</name>
+    <url>https://www.lixin.help</url>
+    <description>eventuate messaging rocketmq support</description>
 
     <dependencies>
         <dependency>
